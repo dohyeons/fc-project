@@ -11,7 +11,7 @@ export async function fetchUserInformation(nickName: string) {
 			`https://public.api.nexon.com/openapi/fconline/v1.0/users?nickname=${nickName}`,
 			{ headers: requestHeaders }
 		).then(res => res.json());
-		return accessId;
+		return accessId || null;
 	} catch (error) {
 		return null;
 	}
