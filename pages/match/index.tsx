@@ -5,6 +5,7 @@ import { fetchUserInformation } from "@/api";
 export default function Match({ accessId }: { accessId: number }) {
 	const router = useRouter();
 	const { nickName } = router.query;
+
 	return (
 		<div>
 			{nickName}, {accessId}
@@ -18,6 +19,9 @@ export const getServerSideProps = (async context => {
 	let accessId;
 	if (typeof nickName === "string") {
 		accessId = await fetchUserInformation(nickName);
+	}
+	if (!accessId) {
+		return { notFound: true };
 	}
 	return {
 		props: {
