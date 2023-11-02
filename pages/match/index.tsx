@@ -2,10 +2,13 @@ import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { fetchUserInformation } from "@/api";
 
-export default function Match({ accessId }: { accessId: number }) {
-	const router = useRouter();
-	const { nickname } = router.query;
-
+export default function Match({
+	accessId,
+	nickname,
+}: {
+	accessId: number;
+	nickname: string;
+}) {
 	return (
 		<div>
 			{nickname}, {accessId}
@@ -26,6 +29,7 @@ export const getServerSideProps = (async context => {
 	return {
 		props: {
 			accessId,
+			nickname,
 		},
 	};
 }) satisfies GetServerSideProps;
