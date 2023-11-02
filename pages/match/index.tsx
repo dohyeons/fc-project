@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { fetchUserInformation } from "@/api";
 
