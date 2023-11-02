@@ -1,14 +1,11 @@
 import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { fetchUserInformation } from "@/api";
 
 export default function Match({
 	accessId,
 	nickname,
-}: {
-	accessId: number;
-	nickname: string;
-}) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	return (
 		<div>
 			{nickname}, {accessId}
