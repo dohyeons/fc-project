@@ -4,21 +4,21 @@ import { fetchUserInformation } from "@/api";
 
 export default function Match({ accessId }: { accessId: number }) {
 	const router = useRouter();
-	const { nickName } = router.query;
+	const { nickname } = router.query;
 
 	return (
 		<div>
-			{nickName}, {accessId}
+			{nickname}, {accessId}
 		</div>
 	);
 }
 
 export const getServerSideProps = (async context => {
-	const { nickName } = context.query;
+	const { nickname } = context.query;
 
 	let accessId;
-	if (typeof nickName === "string") {
-		accessId = await fetchUserInformation(nickName);
+	if (typeof nickname === "string") {
+		accessId = await fetchUserInformation(nickname);
 	}
 	if (!accessId) {
 		return { notFound: true };

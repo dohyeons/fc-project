@@ -6,7 +6,7 @@ export default function Home() {
 	const router = useRouter();
 
 	function handleSubmit() {
-		router.push(`/match?nickName=${nickName}`);
+		router.push(`/match?nickname=${nickName}`);
 	}
 
 	function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
