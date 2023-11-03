@@ -5,6 +5,13 @@ export default function Match({
 	accessId,
 	nickname,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	if (!accessId) {
+		return (
+			<div>
+				<b>{nickname}</b> 유저의 정보를 찾을 수 없습니다. 닉네임을 확인해주세요.
+			</div>
+		);
+	}
 	return (
 		<div>
 			{nickname}, {accessId}
@@ -18,9 +25,6 @@ export const getServerSideProps = (async context => {
 	let accessId;
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
-	}
-	if (!accessId) {
-		return { notFound: true };
 	}
 	return {
 		props: {
