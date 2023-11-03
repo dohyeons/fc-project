@@ -1,9 +1,10 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { fetchUserInformation } from "@/api";
-
+import { fetchUserInformation, fetchUserMaxDivision } from "@/api";
+import { division, matchType } from "@/constant";
 export default function Match({
 	accessId,
 	nickname,
+	userMaxDivisionData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	if (!accessId) {
 		return (
@@ -13,23 +14,44 @@ export default function Match({
 		);
 	}
 	return (
-		<div>
-			{nickname}, {accessId}
-		</div>
+		<>
+			<div>
+				{nickname}, {accessId},
+			</div>
+			<div>
+				{userMaxDivisionData?.map(
+					(obj: {
+						matchType: number;
+						division: number;
+						achievementDate: string;
+					}) => (
+						<div key={obj.matchType}>
+							{matchType[obj.matchType]}
+							<div>{division[obj.division]}</div>
+							<div>{obj.achievementDate}</div>
+						</div>
+					)
+				)}
+			</div>
+		</>
 	);
 }
 
 export const getServerSideProps = (async context => {
 	const { nickname } = context.query;
 
-	let accessId;
+	let accessId, userMaxDivisionData;
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
+	}
+	if (accessId) {
+		userMaxDivisionData = await fetchUserMaxDivision(accessId);
 	}
 	return {
 		props: {
 			accessId,
 			nickname,
+			userMaxDivisionData,
 		},
 	};
 }) satisfies GetServerSideProps;
