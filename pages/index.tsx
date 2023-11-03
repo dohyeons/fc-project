@@ -27,6 +27,7 @@ export default function Home() {
 					handleInput(e);
 				}}
 				className="outline outline-black outline-1 p-1"
+				required
 			/>
 		</form>
 	);
