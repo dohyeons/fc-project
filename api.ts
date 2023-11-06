@@ -33,3 +33,16 @@ export async function fetchUserMaxDivision(accessId: string) {
 		return null;
 	}
 }
+
+export async function fetchUserMatchData(accessId: string) {
+	try {
+		const matchData = await fetch(
+			`https://public.api.nexon.com/openapi/fconline/v1.0/users/${accessId}/matches?matchtype=50&offset=0&limit=10`,
+			{ headers: { Authorization: `${process.env.NEXT_PUBLIC_API_MAIN_KEY}` } }
+		).then(res => res.json());
+
+		return matchData || null;
+	} catch {
+		return null;
+	}
+}
