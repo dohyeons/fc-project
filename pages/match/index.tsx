@@ -44,9 +44,7 @@ export const getServerSideProps = (async context => {
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
 	}
-	if (accessId) {
-		userMaxDivisionData = await fetchUserMaxDivision(accessId);
-	}
+	userMaxDivisionData = await fetchUserMaxDivision(accessId);
 	return {
 		props: {
 			accessId,
