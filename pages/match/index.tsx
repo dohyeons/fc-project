@@ -5,6 +5,8 @@ import {
 	fetchUserMaxDivision,
 } from "@/api";
 import { division, matchType } from "@/constant";
+import UserMaximumDivision from "@/components/UserMaximumDivision";
+import MatchData from "@/components/MatchData";
 export default function Match({
 	accessId,
 	nickname,
@@ -24,28 +26,10 @@ export default function Match({
 				{nickname}, {accessId},
 			</div>
 			<div>
-				<b>경기 정보</b>
-				{userMaxDivisionData?.map(
-					(obj: {
-						matchType: number;
-						division: number;
-						achievementDate: string;
-					}) => (
-						<div key={obj.matchType}>
-							{matchType[obj.matchType]}
-							<div>{division[obj.division]}</div>
-							<div>{obj.achievementDate}</div>
-						</div>
-					)
-				)}
+				<b>유저 정보</b>
+				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
 				<b>공식 경기 id</b>
-				{matchData.length ? (
-					matchData?.map((matchId: string) => (
-						<div key={matchId}>{matchId}</div>
-					))
-				) : (
-					<div>최근 공식 경기 정보가 존재하지 않습니다!</div>
-				)}
+				<MatchData matchData={matchData} />
 			</div>
 		</>
 	);
