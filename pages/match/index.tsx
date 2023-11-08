@@ -1,10 +1,10 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import {
+	fetchMatchDetails,
 	fetchUserInformation,
 	fetchUserMatchData,
 	fetchUserMaxDivision,
 } from "@/api";
-import { division, matchType } from "@/constant";
 import UserMaximumDivision from "@/components/UserMaximumDivision";
 import MatchData from "@/components/MatchData";
 export default function Match({
@@ -12,6 +12,7 @@ export default function Match({
 	nickname,
 	userMaxDivisionData,
 	matchData,
+	matchDetail,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	if (!accessId) {
 		return (
@@ -29,7 +30,7 @@ export default function Match({
 				<b>유저 정보</b>
 				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
 				<b>공식 경기 id</b>
-				<MatchData matchData={matchData} />
+				<MatchData matchData={matchData} matchDetail={matchDetail} />
 			</div>
 		</>
 	);
@@ -38,18 +39,24 @@ export default function Match({
 export const getServerSideProps = (async context => {
 	const { nickname } = context.query;
 
-	let accessId, userMaxDivisionData, matchData;
+	let accessId, userMaxDivisionData, matchData, matchDetail;
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
 	}
-	userMaxDivisionData = await fetchUserMaxDivision(accessId);
-	matchData = await fetchUserMatchData(accessId);
+	if (accessId) {
+		userMaxDivisionData = await fetchUserMaxDivision(accessId);
+		matchData = await fetchUserMatchData(accessId);
+		if (matchData.length !== 0) {
+			matchDetail = await fetchMatchDetails(matchData);
+		}
+	}
 	return {
 		props: {
 			accessId,
 			nickname,
-			userMaxDivisionData,
-			matchData,
+			userMaxDivisionData: userMaxDivisionData || null,
+			matchData: matchData || null,
+			matchDetail: matchDetail || null,
 		},
 	};
 }) satisfies GetServerSideProps;
