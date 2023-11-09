@@ -13,22 +13,24 @@ export default function Home() {
 		setNickname(e.target.value);
 	}
 	return (
-		<form
-			onSubmit={e => {
-				e.preventDefault();
-				handleSubmit();
-				// router.push("/match");
-			}}
-		>
-			<label htmlFor="nickName">닉네임을 입력하세요</label>
-			<input
-				id="nickName"
-				onChange={e => {
-					handleInput(e);
+		<div className="flex flex-col items-center justify-center h-screen w-screen">
+			<h1>너 X 못하잖아~</h1>
+			<form
+				onSubmit={e => {
+					e.preventDefault();
+					handleSubmit();
 				}}
-				className="outline outline-black outline-1 p-1"
-				required
-			/>
-		</form>
+			>
+				<input
+					id="nickName"
+					onChange={e => {
+						handleInput(e);
+					}}
+					className="outline outline-black outline-1 p-1"
+					required
+					placeholder="닉네임을 입력하세요"
+				/>
+			</form>
+		</div>
 	);
 }
