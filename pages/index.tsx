@@ -13,7 +13,7 @@ export default function Home() {
 		setNickname(e.target.value);
 	}
 	return (
-		<div className="flex flex-col items-center justify-center h-screen w-screen">
+		<div className="flex flex-col items-center justify-center h-screen w-screen gap-4">
 			<h1 className="text-2xl font-semibold">너 X 못하잖아~</h1>
 			<form
 				onSubmit={e => {
@@ -26,7 +26,7 @@ export default function Home() {
 					onChange={e => {
 						handleInput(e);
 					}}
-					className="outline outline-black outline-1 p-1"
+					className="outline outline-black outline-1"
 					required
 					placeholder="닉네임을 입력하세요"
 				/>
