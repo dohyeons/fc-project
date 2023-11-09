@@ -14,7 +14,7 @@ export default function Home() {
 	}
 	return (
 		<div className="flex flex-col items-center justify-center h-screen w-screen">
-			<h1>너 X 못하잖아~</h1>
+			<h1 className="text-2xl font-semibold">너 X 못하잖아~</h1>
 			<form
 				onSubmit={e => {
 					e.preventDefault();
