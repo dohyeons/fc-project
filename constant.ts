@@ -1,24 +1,24 @@
-type DivisionAndMatchType = Record<string, string>;
+type DivisionAndMatchType = Record<string, string[] | string>;
 
 export const division: DivisionAndMatchType = {
-	800: "슈퍼챔피언스",
-	900: "챔피언스",
-	1000: "슈퍼챌린지",
-	1100: "챌린지 1",
-	1200: "챌린지 2",
-	1300: "챌린지 3",
-	2000: "월드클래스 1",
-	2100: "월드클래스 2",
-	2200: "월드클래스 3",
-	2300: "프로 1",
-	2400: "프로 2",
-	2500: "프로 3",
-	2600: "세미프로 1",
-	2700: "세미프로 2",
-	2800: "세미프로 3",
-	2900: "유망주 1",
-	3000: "유망주 2",
-	3100: "유망주 3",
+	800: ["슈퍼챔피언스", "bg-superChampions"],
+	900: ["챔피언스", "bg-champions"],
+	1000: ["슈퍼챌린저", "bg-challenger"],
+	1100: ["챌린저 1", "bg-challenger"],
+	1200: ["챌린저 2", "bg-challenger"],
+	1300: ["챌린저 3", "bg-challenger"],
+	2000: ["월드클래스 1", "bg-worldClass"],
+	2100: ["월드클래스 2", "bg-worldClass"],
+	2200: ["월드클래스 3", "bg-worldClass"],
+	2300: ["프로 1", "bg-pro"],
+	2400: ["프로 2", "bg-pro"],
+	2500: ["프로 3", "bg-pro"],
+	2600: ["세미프로 1", "bg-semiPro"],
+	2700: ["세미프로 2", "bg-semiPro"],
+	2800: ["세미프로 3", "bg-semiPro"],
+	2900: ["유망주 1", "bg-prospect"],
+	3000: ["유망주 2", "bg-prospect"],
+	3100: ["유망주 3", "bg-prospect"],
 };
 
 export const matchType: DivisionAndMatchType = {
