@@ -13,7 +13,7 @@ export default function UserMaximumDivision({
 	userMaxDivisionData,
 }: UserMaximumDivisionProps) {
 	return (
-		<>
+		<div className="border border-black 1px solid">
 			{userMaxDivisionData?.map(
 				(obj: {
 					matchType: number;
@@ -27,6 +27,6 @@ export default function UserMaximumDivision({
 					</div>
 				)
 			)}
-		</>
+		</div>
 	);
 }
