@@ -22,7 +22,7 @@ export default function UserMaximumDivision({
 				}) => (
 					<div
 						key={obj.matchType}
-						className="border 1px border-red-400 solid flex flex-col items-center"
+						className="border 1px border-red-400 solid flex flex-col items-center gap-2"
 					>
 						<h4 className="text-lg font-bold">{matchType[obj.matchType]}</h4>
 						<div>{division[obj.division]}</div>
