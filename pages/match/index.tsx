@@ -22,17 +22,15 @@ export default function Match({
 		);
 	}
 	return (
-		<>
-			<div>
-				{nickname}, {accessId},
-			</div>
+		<div className="flex flex-col items-center">
+			<h1 className=" text-3xl font-extrabold">{nickname}</h1>
 			<div>
 				<b>유저 정보</b>
 				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
 				<b>공식 경기 id</b>
 				<MatchData matchData={matchData} matchDetail={matchDetail} />
 			</div>
-		</>
+		</div>
 	);
 }
 
