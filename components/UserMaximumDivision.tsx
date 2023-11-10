@@ -20,7 +20,10 @@ export default function UserMaximumDivision({
 					division: number;
 					achievementDate: string;
 				}) => (
-					<div key={obj.matchType} className="border 1px border-red-400 solid">
+					<div
+						key={obj.matchType}
+						className="border 1px border-red-400 solid flex flex-col items-center"
+					>
 						{matchType[obj.matchType]}
 						<div>{division[obj.division]}</div>
 						<div>{obj.achievementDate}</div>
