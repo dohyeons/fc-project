@@ -22,6 +22,15 @@ const config: Config = {
 			animation: {
 				fadeIn: "fadeIn 1s ease-in-out",
 			},
+			colors: {
+				prospect: "#e3743f",
+				semiPro: "#607c88",
+				pro: "#f18e10",
+				worldClass: "#9b68f4",
+				challenger: "#88e2d1",
+				champions: "#72357b",
+				superChampions: "#f4eddd",
+			},
 		},
 	},
 	plugins: [],
