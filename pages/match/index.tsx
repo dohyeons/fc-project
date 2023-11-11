@@ -28,7 +28,11 @@ export default function Match({
 				<b>유저 정보</b>
 				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
 				<b>공식 경기 id</b>
-				<MatchData matchData={matchData} matchDetail={matchDetail} />
+				{matchData ? (
+					<MatchData matchData={matchData} matchDetail={matchDetail} />
+				) : (
+					<div>최근 공식 경기 정보가 존재하지 않습니다!</div>
+				)}
 			</div>
 		</div>
 	);
@@ -37,7 +41,14 @@ export default function Match({
 export const getServerSideProps = (async context => {
 	const { nickname } = context.query;
 
-	let accessId, userMaxDivisionData, matchData, matchDetail;
+	let accessId, userMaxDivisionData, matchData;
+	let matchDetail: {
+		matchDate: string;
+		nickname1: string;
+		matchResult1: string;
+		nickname2: string;
+		matchResult2: string;
+	}[] = [];
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
 	}
@@ -54,7 +65,7 @@ export const getServerSideProps = (async context => {
 			nickname,
 			userMaxDivisionData: userMaxDivisionData || null,
 			matchData: matchData || null,
-			matchDetail: matchDetail || null,
+			matchDetail: matchDetail,
 		},
 	};
 }) satisfies GetServerSideProps;
