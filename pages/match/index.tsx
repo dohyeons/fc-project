@@ -28,7 +28,7 @@ export default function Match({
 				<b>유저 정보</b>
 				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
 				<b>공식 경기 id</b>
-				{matchData ? (
+				{matchData.length ? (
 					<MatchData matchData={matchData} matchDetail={matchDetail} />
 				) : (
 					<div>최근 공식 경기 정보가 존재하지 않습니다!</div>
