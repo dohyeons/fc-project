@@ -24,7 +24,11 @@ export default function UserMaximumDivision({
 						className="border 1px border-red-400 solid flex flex-col items-center gap-2 px-2 py-3"
 					>
 						<h4 className="text-lg font-bold">{matchType[obj.matchType]}</h4>
-						<div className={`${division[obj.division][1]}`}>
+						<div
+							className={`${
+								division[obj.division][1]
+							} w-[100px] h-24 rounded-xl flex justify-center items-center font-semibold`}
+						>
 							{division[obj.division][0]}
 						</div>
 						<div>{obj.achievementDate}</div>
