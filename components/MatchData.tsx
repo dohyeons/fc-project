@@ -14,6 +14,7 @@ export default function MatchData({ matchData, matchDetail }: MatchDataProps) {
 		<>
 			{matchDetail.map(el => (
 				<div key={el.matchDate}>
+					<p>{el.matchDate}</p>
 					{`${el.nickname1}   ${el.matchResult1} vs ${el.nickname2}   ${el.matchResult2}`}
 				</div>
 			))}
