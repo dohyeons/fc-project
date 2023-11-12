@@ -1,3 +1,5 @@
+import { getKoreanTime } from "./utils/getKoreaTime";
+
 export async function fetchUserInformation(nickName: string) {
 	try {
 		const { accessId } = await fetch(
@@ -22,11 +24,8 @@ export async function fetchUserMaxDivision(accessId: string) {
 				division: number;
 				achievementDate: string;
 			}) => {
-				const date = new Date(obj.achievementDate);
-				const year = date.getFullYear();
-				const month = date.getMonth() + 1;
-				const day = date.getDate();
-				return { ...obj, achievementDate: `${year}년 ${month}월 ${day}일` };
+				const koreanDate = getKoreanTime(obj.achievementDate);
+				return { ...obj, achievementDate: koreanDate };
 			}
 		);
 	} catch {
@@ -83,7 +82,7 @@ export async function fetchMatchDetails(matchIds: string[]) {
 					],
 				} = res;
 				matchDetails.push({
-					matchDate,
+					matchDate: getKoreanTime(matchDate),
 					nickname1,
 					matchResult1,
 					nickname2,
