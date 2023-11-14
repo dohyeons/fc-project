@@ -1,3 +1,4 @@
+import { fetchUserMatchData } from "@/api";
 import { matchType, division } from "@/constant";
 
 interface DivisionData {
@@ -6,13 +7,16 @@ interface DivisionData {
 	achievementDate: string;
 }
 interface UserMaximumDivisionProps {
+	accessId: string;
 	userMaxDivisionData: DivisionData[];
 }
 export default function UserMaximumDivision({
+	accessId,
 	userMaxDivisionData,
 }: UserMaximumDivisionProps) {
 	async function handleTierListClick(matchType: number) {
-		alert(matchType);
+		const matchData = await fetchUserMatchData(accessId, matchType);
+		console.log(matchData);
 	}
 	return (
 		<div className="border border-black 1px solid flex gap-3 animate-fadeIn">
