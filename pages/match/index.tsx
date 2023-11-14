@@ -54,7 +54,7 @@ export const getServerSideProps = (async context => {
 	}
 	if (accessId) {
 		userMaxDivisionData = await fetchUserMaxDivision(accessId);
-		matchData = await fetchUserMatchData(accessId);
+		matchData = await fetchUserMatchData(accessId, 50);
 		if (matchData.length !== 0) {
 			matchDetail = await fetchMatchDetails(matchData);
 		}
