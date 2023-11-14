@@ -26,7 +26,10 @@ export default function Match({
 			<h1 className=" text-3xl font-extrabold animate-fadeIn">{nickname}</h1>
 			<div className="flex flex-col items-center">
 				<b>유저 정보</b>
-				<UserMaximumDivision userMaxDivisionData={userMaxDivisionData} />
+				<UserMaximumDivision
+					accessId={accessId}
+					userMaxDivisionData={userMaxDivisionData}
+				/>
 				<b>공식 경기 id</b>
 				{matchData.length ? (
 					<MatchData matchData={matchData} matchDetail={matchDetail} />
