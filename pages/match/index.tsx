@@ -7,6 +7,7 @@ import {
 } from "@/api";
 import UserMaximumDivision from "@/components/UserMaximumDivision";
 import MatchData from "@/components/MatchData";
+import { useState } from "react";
 export default function Match({
 	accessId,
 	nickname,
@@ -14,6 +15,7 @@ export default function Match({
 	matchData,
 	matchDetail,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	const [matchDetailArr, setMatchDetailArr] = useState(matchDetail);
 	if (!accessId) {
 		return (
 			<div>
@@ -29,10 +31,11 @@ export default function Match({
 				<UserMaximumDivision
 					accessId={accessId}
 					userMaxDivisionData={userMaxDivisionData}
+					setMatchDetailArr={setMatchDetailArr}
 				/>
 				<b>공식 경기 id</b>
 				{matchData.length ? (
-					<MatchData matchData={matchData} matchDetail={matchDetail} />
+					<MatchData matchData={matchData} matchDetail={matchDetailArr} />
 				) : (
 					<div>최근 공식 경기 정보가 존재하지 않습니다!</div>
 				)}
