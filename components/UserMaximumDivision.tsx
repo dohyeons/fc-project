@@ -11,6 +11,9 @@ interface UserMaximumDivisionProps {
 export default function UserMaximumDivision({
 	userMaxDivisionData,
 }: UserMaximumDivisionProps) {
+	async function handleTierListClick(matchType: number) {
+		alert(matchType);
+	}
 	return (
 		<div className="border border-black 1px solid flex gap-3 animate-fadeIn">
 			{userMaxDivisionData.length ? (
@@ -22,7 +25,10 @@ export default function UserMaximumDivision({
 					}) => (
 						<div
 							key={obj.matchType}
-							className="border 1px border-red-400 solid flex flex-col items-center gap-2 px-2 py-3 shadow-md"
+							className="border 1px border-red-400 solid flex flex-col items-center gap-2 px-2 py-3 shadow-md hover:cursor-pointer"
+							onClick={() => {
+								handleTierListClick(obj.matchType);
+							}}
 						>
 							<h4 className="text-lg font-bold">{matchType[obj.matchType]}</h4>
 							<div
