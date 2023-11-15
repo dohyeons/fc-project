@@ -1,5 +1,4 @@
 interface MatchDataProps {
-	matchData: string[];
 	matchDetail: {
 		matchDate: string;
 		nickname1: string;
@@ -9,7 +8,7 @@ interface MatchDataProps {
 	}[];
 }
 
-export default function MatchData({ matchData, matchDetail }: MatchDataProps) {
+export default function MatchData({ matchDetail }: MatchDataProps) {
 	return (
 		<>
 			{matchDetail.map(el => (
