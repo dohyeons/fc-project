@@ -12,7 +12,7 @@ interface UserMaximumDivisionProps {
 	accessId: string;
 	userMaxDivisionData: DivisionData[];
 	matchDetail: {
-		matchDate: string;
+		matchDate: string[];
 		nickname1: string;
 		matchResult1: string;
 		nickname2: string;

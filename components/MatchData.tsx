@@ -1,6 +1,6 @@
 interface MatchDataProps {
 	matchDetail: {
-		matchDate: string;
+		matchDate: string[];
 		nickname1: string;
 		matchResult1: string;
 		nickname2: string;
@@ -12,7 +12,7 @@ export default function MatchData({ matchDetail }: MatchDataProps) {
 	return (
 		<>
 			{matchDetail.map(el => (
-				<div key={el.matchDate}>
+				<div key={el.matchDate[0]}>
 					<p>{el.matchDate}</p>
 					{`${el.nickname1}   ${el.matchResult1} vs ${el.nickname2}   ${el.matchResult2}`}
 				</div>

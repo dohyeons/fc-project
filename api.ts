@@ -58,7 +58,7 @@ export async function fetchMatchDetails(matchIds: string[]) {
 		);
 	});
 	const matchDetails: {
-		matchDate: string;
+		matchDate: string[];
 		nickname1: string;
 		matchResult1: string;
 		nickname2: string;
