@@ -2,7 +2,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import {
 	fetchMatchDetails,
 	fetchUserInformation,
-	fetchUserMatchData,
+	fetchUserMatchIds,
 	fetchUserMaxDivision,
 } from "@/api";
 import UserMaximumDivision from "@/components/UserMaximumDivision";
@@ -37,7 +37,7 @@ export default function Match({
 export const getServerSideProps = (async context => {
 	const { nickname } = context.query;
 
-	let accessId, userMaxDivisionData, matchData;
+	let accessId, userMaxDivisionData, matchIds;
 	let matchDetail: {
 		matchDate: string;
 		nickname1: string;
@@ -50,9 +50,9 @@ export const getServerSideProps = (async context => {
 	}
 	if (accessId) {
 		userMaxDivisionData = await fetchUserMaxDivision(accessId);
-		matchData = await fetchUserMatchData(accessId, 50);
-		if (matchData.length !== 0) {
-			matchDetail = await fetchMatchDetails(matchData);
+		matchIds = await fetchUserMatchIds(accessId, 50);
+		if (matchIds.length !== 0) {
+			matchDetail = await fetchMatchDetails(matchIds);
 		}
 	}
 	return {
@@ -60,7 +60,6 @@ export const getServerSideProps = (async context => {
 			accessId,
 			nickname,
 			userMaxDivisionData: userMaxDivisionData || null,
-			matchData: matchData || null,
 			matchDetail: matchDetail,
 		},
 	};

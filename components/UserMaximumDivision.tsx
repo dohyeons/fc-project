@@ -1,4 +1,4 @@
-import { fetchMatchDetails, fetchUserMatchData } from "@/api";
+import { fetchMatchDetails, fetchUserMatchIds } from "@/api";
 import { matchType, division } from "@/constant";
 import MatchData from "./MatchData";
 import { useState } from "react";
@@ -27,7 +27,7 @@ export default function UserMaximumDivision({
 	const [matchDetailArr, setMatchDetailArr] = useState(matchDetail);
 
 	async function handleTierListClick(matchType: number) {
-		const matchData = await fetchUserMatchData(accessId, matchType);
+		const matchData = await fetchUserMatchIds(accessId, matchType);
 		const matchDetail = await fetchMatchDetails(matchData);
 		setMatchDetailArr(matchDetail);
 	}
