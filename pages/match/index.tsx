@@ -5,7 +5,7 @@ import {
 	fetchUserMatchIds,
 	fetchUserMaxDivision,
 } from "@/api";
-import UserMaximumDivision from "@/components/UserMaximumDivision";
+import UserInformation from "@/components/UserInformation";
 export default function Match({
 	accessId,
 	nickname,
@@ -24,7 +24,7 @@ export default function Match({
 			<h1 className=" text-3xl font-extrabold animate-fadeIn">{nickname}</h1>
 			<div className="flex flex-col items-center">
 				<b>유저 정보</b>
-				<UserMaximumDivision
+				<UserInformation
 					accessId={accessId}
 					userMaxDivisionData={userMaxDivisionData}
 					matchDetail={matchDetail}

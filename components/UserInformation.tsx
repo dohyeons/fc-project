@@ -8,7 +8,7 @@ interface DivisionData {
 	division: number;
 	achievementDate: string;
 }
-interface UserMaximumDivisionProps {
+interface UserInformationProps {
 	accessId: string;
 	userMaxDivisionData: DivisionData[];
 	matchDetail: {
@@ -19,11 +19,11 @@ interface UserMaximumDivisionProps {
 		matchResult2: string;
 	}[];
 }
-export default function UserMaximumDivision({
+export default function UserInformation({
 	accessId,
 	userMaxDivisionData,
 	matchDetail,
-}: UserMaximumDivisionProps) {
+}: UserInformationProps) {
 	const [matchDetailArr, setMatchDetailArr] = useState(matchDetail);
 
 	async function handleTierListClick(matchType: number) {
