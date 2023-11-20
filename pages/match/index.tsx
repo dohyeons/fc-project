@@ -7,6 +7,7 @@ import {
 } from "@/api";
 import UserInformation from "@/components/UserInformation";
 import SubLayout from "@/components/SubLayout";
+import UserNotFound from "@/components/UserNotFound";
 export default function Match({
 	accessId,
 	nickname,
@@ -14,11 +15,7 @@ export default function Match({
 	matchDetail,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	if (!accessId) {
-		return (
-			<div>
-				<b>{nickname}</b> 유저의 정보를 찾을 수 없습니다. 닉네임을 확인해주세요.
-			</div>
-		);
+		return <UserNotFound nickname={nickname} />;
 	}
 	return (
 		<div className="flex flex-col items-center">
