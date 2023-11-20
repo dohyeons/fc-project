@@ -6,6 +6,7 @@ import {
 	fetchUserMaxDivision,
 } from "@/api";
 import UserInformation from "@/components/UserInformation";
+import SubLayout from "@/components/SubLayout";
 export default function Match({
 	accessId,
 	nickname,
@@ -64,3 +65,5 @@ export const getServerSideProps = (async context => {
 		},
 	};
 }) satisfies GetServerSideProps;
+
+Match.Layout = SubLayout;
