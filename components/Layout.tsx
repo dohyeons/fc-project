@@ -7,7 +7,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
 	return (
 		<div>
-			<main className="mx-5">{children}</main>
+			<main className="mx-5 mt-10">{children}</main>
 		</div>
 	);
 }
