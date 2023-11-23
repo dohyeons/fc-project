@@ -34,10 +34,20 @@ export default function UserInformation({
 	return (
 		<div>
 			<div className="border border-black 1px solid flex gap-3 animate-fadeIn">
-				<UserDivisions
-					userMaxDivisionData={userMaxDivisionData}
-					handleTierListClick={handleTierListClick}
-				/>
+				{userMaxDivisionData.length ? (
+					userMaxDivisionData.map(userDivisionData => (
+						<UserDivisions
+							key={
+								userDivisionData.achievementDate[0] +
+								userDivisionData.achievementDate[1]
+							}
+							userDivisionData={userDivisionData}
+							handleTierListClick={handleTierListClick}
+						/>
+					))
+				) : (
+					<div>유저의 등급 정보가 존재하지 않습니다!</div>
+				)}
 			</div>
 			<b>공식 경기 id</b>
 			{matchDetailArr.length ? (
