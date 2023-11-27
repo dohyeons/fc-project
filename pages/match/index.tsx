@@ -18,7 +18,7 @@ export default function Match({
 		return <UserNotFound nickname={nickname} />;
 	}
 	return (
-		<div className="flex flex-col items-center">
+		<div className="flex flex-col items-center gap-10">
 			<h1 className=" text-3xl font-extrabold animate-fadeIn">{nickname}</h1>
 			<UserInformation
 				accessId={accessId}
