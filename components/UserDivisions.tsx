@@ -34,7 +34,6 @@ export default function UserDivisions({
 				</div>
 				<div className="text-center">
 					<p>{userDivisionData.achievementDate[0]}</p>
-					<p>{userDivisionData.achievementDate[1]}</p>
 				</div>
 			</div>
 		</>
