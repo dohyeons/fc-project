@@ -20,14 +20,11 @@ export default function Match({
 	return (
 		<div className="flex flex-col items-center">
 			<h1 className=" text-3xl font-extrabold animate-fadeIn">{nickname}</h1>
-			<div className="flex flex-col items-center">
-				<b>유저 정보</b>
-				<UserInformation
-					accessId={accessId}
-					userMaxDivisionData={userMaxDivisionData}
-					matchDetail={matchDetail}
-				/>
-			</div>
+			<UserInformation
+				accessId={accessId}
+				userMaxDivisionData={userMaxDivisionData}
+				matchDetail={matchDetail}
+			/>
 		</div>
 	);
 }
