@@ -32,7 +32,10 @@ export default function UserDivisions({
 				>
 					{division[userDivisionData.division][0]}
 				</div>
-				<div>{userDivisionData.achievementDate}</div>
+				<div>
+					<p>{userDivisionData.achievementDate[0]}</p>
+					<p>{userDivisionData.achievementDate[1]}</p>
+				</div>
 			</div>
 		</>
 	);
