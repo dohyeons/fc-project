@@ -49,7 +49,6 @@ export default function UserInformation({
 					<div>유저의 등급 정보가 존재하지 않습니다!</div>
 				)}
 			</div>
-			<b>공식 경기 id</b>
 			{matchDetailArr.length ? (
 				<MatchData matchDetail={matchDetailArr} />
 			) : (
