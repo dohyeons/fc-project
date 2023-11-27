@@ -32,7 +32,7 @@ export default function UserInformation({
 		setMatchDetailArr(matchDetail);
 	}
 	return (
-		<div>
+		<div className="flex flex-col gap-10">
 			<div className="border border-black 1px solid flex gap-3 animate-fadeIn">
 				{userMaxDivisionData.length ? (
 					userMaxDivisionData.map(userDivisionData => (
@@ -49,11 +49,13 @@ export default function UserInformation({
 					<div>유저의 등급 정보가 존재하지 않습니다!</div>
 				)}
 			</div>
-			{matchDetailArr.length ? (
-				<MatchData matchDetail={matchDetailArr} />
-			) : (
-				<div>최근 경기 정보가 존재하지 않습니다!</div>
-			)}
+			<div>
+				{matchDetailArr.length ? (
+					<MatchData matchDetail={matchDetailArr} />
+				) : (
+					<div>최근 경기 정보가 존재하지 않습니다!</div>
+				)}
+			</div>
 		</div>
 	);
 }
