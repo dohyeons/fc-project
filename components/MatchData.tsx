@@ -12,7 +12,10 @@ export default function MatchData({ matchDetail }: MatchDataProps) {
 	return (
 		<>
 			{matchDetail.map(el => (
-				<div key={el.matchDate[1] + el.matchDate[0]}>
+				<div
+					key={el.matchDate[1] + el.matchDate[0]}
+					className="border border-violet-600"
+				>
 					<p>{`${el.matchDate[0]} ${el.matchDate[1]}`}</p>
 					{`${el.nickname1}   ${el.matchResult1} vs ${el.nickname2}   ${el.matchResult2}`}
 				</div>
