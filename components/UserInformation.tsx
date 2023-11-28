@@ -49,7 +49,7 @@ export default function UserInformation({
 					<div>유저의 등급 정보가 존재하지 않습니다!</div>
 				)}
 			</div>
-			<div>
+			<div className="flex flex-col border border-black gap-2 items-center">
 				{matchDetailArr.length ? (
 					<MatchData matchDetail={matchDetailArr} />
 				) : (
