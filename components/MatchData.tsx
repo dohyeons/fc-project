@@ -14,7 +14,7 @@ export default function MatchData({ matchDetail }: MatchDataProps) {
 			{matchDetail.map((el, idx) => (
 				<div
 					key={el.matchDate[1] + el.matchDate[0]}
-					className="border border-violet-600 p-5 w-full flex items-center"
+					className="border border-violet-600 p-5 w-full flex items-center animate-fadeIn"
 				>
 					<div>{idx + 1}</div>
 					<div className="border border-green-600 flex flex-col items-center">
