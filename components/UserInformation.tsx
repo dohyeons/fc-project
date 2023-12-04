@@ -33,7 +33,7 @@ export default function UserInformation({
 	}
 	return (
 		<div className="flex flex-col gap-10">
-			<div className="border border-black 1px solid flex gap-5 animate-fadeIn">
+			<div className="border border-black 1px solid flex gap-5 animate-fadeIn justify-center">
 				{userMaxDivisionData.length ? (
 					userMaxDivisionData.map(userDivisionData => (
 						<UserDivisions
