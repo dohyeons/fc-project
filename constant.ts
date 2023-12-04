@@ -1,4 +1,4 @@
-type DivisionAndMatchType = Record<string, string[] | string>;
+import { DivisionAndMatchType } from "./type";
 
 export const division: DivisionAndMatchType = {
 	800: ["슈퍼챔피언스", "bg-superChampions"],
