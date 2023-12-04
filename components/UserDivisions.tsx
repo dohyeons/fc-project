@@ -1,18 +1,10 @@
 import { division, matchType } from "@/constant";
-
-interface UserMaxDivisionData {
-	matchType: number;
-	division: number;
-	achievementDate: string;
-}
+import { UserDivisionsProps } from "@/type";
 
 export default function UserDivisions({
 	userDivisionData,
 	handleTierListClick,
-}: {
-	userDivisionData: UserMaxDivisionData;
-	handleTierListClick(matchType: number): Promise<void>;
-}) {
+}: UserDivisionsProps) {
 	return (
 		<>
 			<div
