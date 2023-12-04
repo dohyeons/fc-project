@@ -23,3 +23,9 @@ export interface UserDivisionsProps {
 	userDivisionData: UserMaxDivisionData;
 	handleTierListClick(matchType: number): Promise<void>;
 }
+
+export interface UserInformationProps {
+	accessId: string;
+	userMaxDivisionData: UserMaxDivisionData[];
+	matchDetail: MatchDetailType;
+}

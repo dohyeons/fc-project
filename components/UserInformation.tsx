@@ -2,23 +2,8 @@ import { fetchMatchDetails, fetchUserMatchIds } from "@/api";
 import MatchData from "./MatchData";
 import { useState } from "react";
 import UserDivisions from "./UserDivisions";
+import { UserInformationProps } from "@/type";
 
-interface DivisionData {
-	matchType: number;
-	division: number;
-	achievementDate: string;
-}
-interface UserInformationProps {
-	accessId: string;
-	userMaxDivisionData: DivisionData[];
-	matchDetail: {
-		matchDate: string[];
-		nickname1: string;
-		matchResult1: string;
-		nickname2: string;
-		matchResult2: string;
-	}[];
-}
 export default function UserInformation({
 	accessId,
 	userMaxDivisionData,
