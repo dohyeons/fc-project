@@ -1,12 +1,4 @@
-interface MatchDataProps {
-	matchDetail: {
-		matchDate: string[];
-		nickname1: string;
-		matchResult1: string;
-		nickname2: string;
-		matchResult2: string;
-	}[];
-}
+import { MatchDataProps } from "@/type";
 
 export default function MatchData({ matchDetail }: MatchDataProps) {
 	return (

@@ -8,3 +8,7 @@ export type MatchDetailType = {
 	nickname2: string;
 	matchResult2: string;
 }[];
+
+export interface MatchDataProps {
+	matchDetail: MatchDetailType;
+}
