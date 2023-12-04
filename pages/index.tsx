@@ -31,6 +31,7 @@ export default function Home() {
 					required
 					placeholder="닉네임을 입력하세요"
 				/>
+				<button>검색</button>
 			</form>
 		</div>
 	);
