@@ -8,6 +8,7 @@ import {
 import UserInformation from "@/components/UserInformation";
 import SubLayout from "@/components/SubLayout";
 import UserNotFound from "@/components/UserNotFound";
+import { MatchDetailType } from "@/type";
 export default function Match({
 	accessId,
 	nickname,
@@ -33,13 +34,7 @@ export const getServerSideProps = (async context => {
 	const { nickname } = context.query;
 
 	let accessId, userMaxDivisionData, matchIds;
-	let matchDetail: {
-		matchDate: string[];
-		nickname1: string;
-		matchResult1: string;
-		nickname2: string;
-		matchResult2: string;
-	}[] = [];
+	let matchDetail: MatchDetailType = [];
 	if (typeof nickname === "string") {
 		accessId = await fetchUserInformation(nickname);
 	}
