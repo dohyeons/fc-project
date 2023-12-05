@@ -6,7 +6,7 @@ export default function MatchData({ matchDetail }: MatchDataProps) {
 			{matchDetail.map((el, idx) => (
 				<div
 					key={el.matchDate[1] + el.matchDate[0]}
-					className="border border-violet-600 p-5 w-full flex items-center animate-fadeIn rounded-[10px]"
+					className="border border-violet-600 p-5 w-full flex items-center animate-fadeIn rounded-[10px] transition duration-300 hover:-translate-y-1"
 				>
 					<div>{idx + 1}</div>
 					<div className="border border-green-600 flex flex-col items-center">
