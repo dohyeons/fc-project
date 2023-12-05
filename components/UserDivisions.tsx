@@ -9,7 +9,7 @@ export default function UserDivisions({
 		<>
 			<div
 				key={userDivisionData.matchType}
-				className="border 1px border-red-400 solid flex flex-col items-center gap-2 px-2 py-3 shadow-md hover:cursor-pointer rounded-lg"
+				className="border 1px border-red-400 solid flex flex-col items-center gap-2 px-2 py-3 shadow-md hover:cursor-pointer rounded-lg transition duration-300 hover:-translate-y-1"
 				onClick={() => {
 					handleTierListClick(userDivisionData.matchType);
 				}}
