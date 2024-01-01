@@ -2,7 +2,7 @@ import { fetchMatchDetails, fetchUserMatchIds } from "@/api";
 import MatchData from "./MatchData";
 import { useState } from "react";
 import UserDivisions from "./UserDivisions";
-import { UserInformationProps } from "@/type";
+import { MatchDetailType, UserInformationProps } from "@/type";
 import ClassicMatch from "./ClassicMatch";
 
 export default function UserInformation({
@@ -12,14 +12,19 @@ export default function UserInformation({
 	matchDetail,
 }: UserInformationProps) {
 	const [matchDetailArr, setMatchDetailArr] = useState(matchDetail);
+	const [classicMatchDetailArr, setClassicMatchDetailArr] =
+		useState<MatchDetailType>([]);
 	const [isClassic, setIsClassic] = useState(false);
 	const [opponent, setOpponent] = useState("");
+
+	const initialMatchDetailArr = matchDetailArr;
 
 	async function handleTierListClick(matchType: number) {
 		const matchIds = await fetchUserMatchIds(accessId, matchType);
 		const matchDetail = await fetchMatchDetails(matchIds);
 		setMatchDetailArr(matchDetail);
 		if (matchType === 40) {
+			setClassicMatchDetailArr(matchDetail);
 			setIsClassic(true);
 		} else {
 			setIsClassic(false);
@@ -29,7 +34,26 @@ export default function UserInformation({
 	function inputChange(e: React.ChangeEvent<HTMLInputElement>) {
 		setOpponent(e.target.value);
 	}
-	function searchHeadToHeadRecord() {}
+	function searchHeadToHeadRecord() {
+		// 닉네임 검색창을 비워뒀을 경우
+		// 클래식 매치 전체 기록을 조회
+		if (!opponent) {
+			handleTierListClick(40);
+		} else {
+			// 비워두지 않았을 경우
+			// 클래식 매치 기록에서 opponent를 닉네임으로 가진 상대와의 전적만을 남김
+			console.log(initialMatchDetailArr);
+			const filteredMatchDetailArr = classicMatchDetailArr.filter(
+				matchDetail => {
+					return (
+						matchDetail.nickname1 === opponent ||
+						matchDetail.nickname2 === opponent
+					);
+				}
+			);
+			setMatchDetailArr(filteredMatchDetailArr);
+		}
+	}
 	return (
 		<div className="flex flex-col gap-10">
 			<div className="border border-black 1px solid flex gap-5 animate-fadeIn justify-center">
@@ -61,7 +85,6 @@ export default function UserInformation({
 						id="nickName"
 						onChange={inputChange}
 						className="outline outline-black outline-1 w-full max-w-xs"
-						required
 						placeholder="닉네임을 입력하세요"
 					/>
 					<button>검색</button>
