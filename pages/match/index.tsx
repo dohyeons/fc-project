@@ -22,6 +22,7 @@ export default function Match({
 		<div className="flex flex-col items-center gap-10">
 			<h1 className=" text-3xl font-extrabold animate-fadeIn">{nickname}</h1>
 			<UserInformation
+				nickname={nickname}
 				accessId={accessId}
 				userMaxDivisionData={userMaxDivisionData}
 				matchDetail={matchDetail}
@@ -31,13 +32,13 @@ export default function Match({
 }
 
 export const getServerSideProps = (async context => {
-	const { nickname } = context.query;
+	let { nickname } = context.query;
+	nickname = nickname as string;
 
 	let accessId, userMaxDivisionData, matchIds;
 	let matchDetail: MatchDetailType = [];
-	if (typeof nickname === "string") {
-		accessId = await fetchUserInformation(nickname);
-	}
+	accessId = await fetchUserInformation(nickname);
+
 	if (accessId) {
 		userMaxDivisionData = await fetchUserMaxDivision(accessId);
 		matchIds = await fetchUserMatchIds(accessId, 50);

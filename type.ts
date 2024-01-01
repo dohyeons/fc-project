@@ -9,9 +9,10 @@ export type MatchDetailType = {
 	matchResult2: string;
 }[];
 
-export interface MatchDataProps {
-	matchDetail: MatchDetailType;
-}
+export type MatchDataProps = Omit<
+	UserInformationProps,
+	"accessId" | "userMaxDivisionData"
+>;
 
 interface UserMaxDivisionData {
 	matchType: number;
@@ -25,6 +26,7 @@ export interface UserDivisionsProps {
 }
 
 export interface UserInformationProps {
+	nickname: string;
 	accessId: string;
 	userMaxDivisionData: UserMaxDivisionData[];
 	matchDetail: MatchDetailType;
