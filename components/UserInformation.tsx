@@ -6,6 +6,7 @@ import { UserInformationProps } from "@/type";
 import ClassicMatch from "./ClassicMatch";
 
 export default function UserInformation({
+	nickname,
 	accessId,
 	userMaxDivisionData,
 	matchDetail,
@@ -68,7 +69,7 @@ export default function UserInformation({
 			)}
 			<div className="flex flex-col border border-black gap-2 items-center">
 				{matchDetailArr.length ? (
-					<MatchData matchDetail={matchDetailArr} />
+					<MatchData matchDetail={matchDetailArr} nickname={nickname} />
 				) : (
 					<div>최근 경기 정보가 존재하지 않습니다!</div>
 				)}
