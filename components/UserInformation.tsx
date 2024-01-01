@@ -15,8 +15,8 @@ export default function UserInformation({
 	const [opponent, setOpponent] = useState("");
 
 	async function handleTierListClick(matchType: number) {
-		const matchData = await fetchUserMatchIds(accessId, matchType);
-		const matchDetail = await fetchMatchDetails(matchData);
+		const matchIds = await fetchUserMatchIds(accessId, matchType);
+		const matchDetail = await fetchMatchDetails(matchIds);
 		setMatchDetailArr(matchDetail);
 		if (matchType === 40) {
 			setIsClassic(true);
